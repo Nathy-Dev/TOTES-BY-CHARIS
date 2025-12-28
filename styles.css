@@ -180,6 +180,19 @@
             padding: 12px 0;
         }
 
+        /* hide breadcrumb container when there are no items (prevents gap under header) */
+        .breadcrumb:empty {
+            display: none;
+            margin: 0;
+            padding: 0;
+            height: 0;
+        }
+
+        nav[aria-label="Breadcrumb"] {
+            margin: 0;
+            padding: 0;
+        }
+
         .breadcrumb li {
             list-style: none;
         }
