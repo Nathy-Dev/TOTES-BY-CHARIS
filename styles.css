@@ -109,6 +109,8 @@
             justify-content: flex-end;
             /* keep nav on the right */
             gap: 12px;
+            position: relative;
+            /* positioning context for dropdown */
         }
 
         .header-top {
@@ -166,6 +168,41 @@
             display: none;
             background: transparent;
             border: none;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+            padding: 12px 0;
+        }
+
+        .breadcrumb li {
+            list-style: none;
+        }
+
+        .breadcrumb li+li::before {
+            content: "/";
+            margin: 0 8px;
+            color: #ccc;
+        }
+
+        .breadcrumb a {
+            color: var(--color-charcoal);
+        }
+
+        .breadcrumb a:focus,
+        .breadcrumb a:hover {
+            color: var(--color-terracotta);
+            outline: none;
+        }
+
+        .breadcrumb .current {
+            color: var(--color-charcoal);
+            font-weight: 600;
         }
 
         /* Hamburger styling */
@@ -455,7 +492,7 @@
                 height: 2px;
                 background: var(--color-charcoal);
                 position: relative;
-                transition: transform 0.25s;
+                transition: transform 0.25s, opacity 0.2s;
             }
 
             .nav-toggle .hamburger::before,
@@ -473,18 +510,39 @@
                 transform: translateY(7px);
             }
 
-            /* Hide nav by default on small screens */
+            /* Dropdown overlay (does not push content) */
             nav#main-nav ul {
-                display: none;
+                position: absolute;
+                top: calc(100% + 8px);
+                right: 0;
+                background: var(--color-white);
+                border: 1px solid #eee;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+                border-radius: 8px;
+                display: flex;
                 flex-direction: column;
-                gap: 12px;
-                align-items: center;
-                padding: 15px 10px;
+                gap: 8px;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                max-height: 0;
+                width: 220px;
+                opacity: 0;
+                transition: max-height 0.32s cubic-bezier(.2, .9, .3, 1), opacity 0.18s ease;
+                pointer-events: none;
+                z-index: 1500;
             }
 
-            /* When nav is open */
+            nav#main-nav ul li {
+                padding: 10px 14px;
+            }
+
+            /* When nav is open - expand overlay */
             .nav-wrapper.open nav#main-nav ul {
-                display: flex;
+                max-height: 400px;
+                opacity: 1;
+                pointer-events: auto;
+                padding: 10px;
             }
 
             .nav-wrapper {

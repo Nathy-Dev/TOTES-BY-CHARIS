@@ -6,6 +6,8 @@ const app = {
     init: () => {
         app.renderHome();
         app.renderShop();
+        // initialise breadcrumb on load
+        app.updateBreadcrumb('home');
     },
 
     // Navigation Router
@@ -17,14 +19,49 @@ const app = {
         if (viewName === 'home') {
             document.getElementById('homeView').classList.add('active');
             window.scrollTo(0, 0);
+            app.updateBreadcrumb('home');
         } else if (viewName === 'shop') {
             document.getElementById('shopView').classList.add('active');
             window.scrollTo(0, 0);
+            app.updateBreadcrumb('shop');
         } else if (viewName === 'product' && productId) {
             app.renderProductDetail(productId);
             document.getElementById('productView').classList.add('active');
             window.scrollTo(0, 0);
+            app.updateBreadcrumb('product', productId);
         }
+    },
+
+    // Update breadcrumb trail
+    updateBreadcrumb: (viewName, productId = null) => {
+        const container = document.getElementById('breadcrumb');
+        if (!container) return;
+        const makeLink = (label, view, id = null) => `<a href="#" onclick="app.router('${view}'${id ? ', ' + id : ''})">${label}</a>`;
+
+        let items = [];
+        if (viewName === 'home') {
+            // hide breadcrumb on home
+            container.innerHTML = '';
+            return;
+        } else if (viewName === 'shop') {
+            items = [
+                { name: 'Home', view: 'home' },
+                { name: 'Shop', current: true }
+            ];
+        } else if (viewName === 'product') {
+            const product = products.find(p => p.id === productId);
+            const productName = product ? product.name : 'Product';
+            items = [
+                { name: 'Home', view: 'home' },
+                { name: 'Shop', view: 'shop' },
+                { name: productName, current: true }
+            ];
+        }
+
+        container.innerHTML = items.map((it, idx) => {
+            if (it.current) return `<li class="current" aria-current="page">${it.name}</li>`;
+            return `<li>${makeLink(it.name, it.view)}</li>`;
+        }).join('');
     },
 
     // Generate HTML for a product card
