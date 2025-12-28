@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Totes By Charis | Luxury Resale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <div class="header-top">
+          <img
+            src="assets/charis-totes-logo.svg"
+            alt="Totes By Charis Logo"
+            class="header-logo"
+          />
+          <a href="#" class="logo" onclick="app.router('home')"
+            >TOTES BY CHARIS</a
+          >
+        </div>
+
+        <div class="nav-wrapper" role="navigation" aria-label="Primary">
+          <button
+            class="nav-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="main-nav"
+          >
+            <span class="hamburger" aria-hidden="true"></span>
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+
+          <nav id="main-nav">
+            <ul>
+              <li><a href="#" onclick="app.router('home')">Home</a></li>
+              <li>
+                <a href="#" onclick="app.router('shop')">Shop Collection</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="window.location.href='mailto:info@totesbycharis.com'"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div id="homeView" class="view active">
+      <section class="hero">
+        <div class="container">
+          <h1>Luxury Bags. Authenticated. Resold.</h1>
+          <p>Carefully curated pieces for the modern woman.</p>
+          <a href="#" onclick="app.router('shop')" class="btn btn-primary"
+            >Shop The Collection</a
+          >
+        </div>
+      </section>
+
+      <div class="container">
+        <h2 class="section-title">Latest Arrivals</h2>
+        <div id="featuredGrid" class="product-grid"></div>
+        <div style="text-align: center; margin-bottom: 60px">
+          <a href="#" onclick="app.router('shop')" class="btn"
+            >View All Items</a
+          >
+        </div>
+      </div>
+
+      <section class="trust-section">
+        <div class="container trust-grid">
+          <div class="trust-item">
+            <h4>100% Authentic</h4>
+            <p>Every item is verified before it reaches your hands.</p>
+          </div>
+          <div class="trust-item">
+            <h4>Curated Luxury</h4>
+            <p>We only stock items that meet our high standards.</p>
+          </div>
+          <div class="trust-item">
+            <h4>Trusted Resale</h4>
+            <p>Professional service from inquiry to delivery.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="shopView" class="view">
+      <div class="container" style="margin-top: 40px">
+        <h2 class="section-title">Full Collection</h2>
+        <div id="shopGrid" class="product-grid"></div>
+      </div>
+    </div>
+
+    <div id="productView" class="view">
+      <div class="container product-detail-container">
+        <div class="pd-image">
+          <img id="detailImg" src="" alt="Product Image" />
+        </div>
+        <div class="pd-info">
+          <span class="pd-brand" id="detailBrand">BRAND</span>
+          <h1 class="pd-title" id="detailName">Product Name</h1>
+          <span class="pd-price" id="detailPrice">$0.00</span>
+
+          <div class="pd-description" id="detailDesc">
+            Description goes here...
+          </div>
+
+          <div class="pd-meta">
+            <div class="pd-meta-item">
+              <span class="pd-meta-label">Condition:</span>
+              <span id="detailCondition">Like New</span>
+            </div>
+            <div class="pd-meta-item">
+              <span class="pd-meta-label">Category:</span>
+              <span id="detailCategory">Tote Bag</span>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            id="whatsappBtn"
+            target="_blank"
+            class="btn btn-primary"
+            style="width: 100%; text-align: center"
+          >
+            Order on WhatsApp
+          </a>
+          <p
+            style="
+              font-size: 0.8rem;
+              margin-top: 10px;
+              color: #888;
+              text-align: center;
+            "
+          >
+            Clicking this will open a chat with our sales team.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Totes By Charis. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./products.js"></script>
+  </body>
+</html>
