@@ -221,7 +221,7 @@
         /* Hamburger styling */
         .nav-toggle .hamburger {
             display: block;
-            width: 20px;
+            width: 20px !important;
             height: 2px;
             background: var(--color-charcoal);
             position: relative;
@@ -233,18 +233,19 @@
             content: "";
             position: absolute;
             left: 0;
-            width: 20px;
             height: 2px;
             background: var(--color-charcoal);
             transition: transform 0.2s ease, top 0.2s ease;
         }
 
         .nav-toggle .hamburger::before {
-            top: -7px;
+            top: -2px;
+            width: 30px !important;
         }
 
         .nav-toggle .hamburger::after {
-            top: 7px;
+            top: 2px;
+            width: 10px !important;
         }
 
         /* Open state: transform into X */
@@ -254,19 +255,21 @@
 
         .nav-toggle[aria-expanded="true"] .hamburger::before {
             transform: rotate(45deg);
+            width: 20px !important;
             top: 0;
         }
 
         .nav-toggle[aria-expanded="true"] .hamburger::after {
             transform: rotate(-45deg);
+            width: 20px !important;
             top: 0;
         }
 
         /* Focus styles */
         .nav-toggle:focus {
             outline: none;
-            box-shadow: 0 0 0 4px rgba(216, 120, 95, 0.12);
-            border-radius: 6px;
+            /* box-shadow: 0 0 0 4px rgba(216, 120, 95, 0.12); */
+            /* border-radius: 6px; */
         }
 
         /* --- 4. VIEWS (PAGES) --- */
@@ -491,7 +494,7 @@
                 justify-content: center;
                 width: 44px;
                 height: 44px;
-                border: 1px solid #eee;
+                /* border: 1px solid #eee; */
                 background: transparent;
                 border-radius: 6px;
                 cursor: pointer;
