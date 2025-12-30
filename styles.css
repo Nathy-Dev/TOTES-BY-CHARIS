@@ -565,7 +565,7 @@
         /* Large laptops/tablets */
         @media (max-width: 1024px) {
             .hero {
-                padding: 80px 0;
+                padding: 0;
             }
 
             .hero h1 {
@@ -762,7 +762,7 @@
             }
 
             .hero-visual .bag-main {
-                width: 760px !important;
+                width: 760px;
             }
 
             .hero-blob {
