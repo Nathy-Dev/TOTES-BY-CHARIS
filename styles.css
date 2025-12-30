@@ -736,7 +736,7 @@
         }
 
         /* Responsive tweaks for hero split layout */
-        @media (max-width: 1024px) {
+        @media (max-width: 779px) {
             .hero-inner {
                 grid-template-columns: 1fr;
                 gap: 28px;
@@ -744,8 +744,14 @@
 
             .hero-left {
                 text-align: center;
+                margin-inline: auto;
             }
+            .hero-ctas {
+                justify-content: center;
+            }
+        }
 
+        @media (max-width: 1024px) {
             .hero-right {
                 min-height: 320px;
             }
