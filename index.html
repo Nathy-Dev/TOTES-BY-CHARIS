@@ -64,13 +64,45 @@
     </div>
 
     <div id="homeView" class="view active">
-      <section class="hero">
-        <div class="container">
-          <h1>Quality. Style. Comfort.</h1>
-          <p>Carefully curated pieces for the modern woman.</p>
-          <a href="#" onclick="app.router('shop')" class="btn btn-primary"
-            >Shop The Collection</a
-          >
+      <section class="hero hero-split">
+        <div class="container hero-inner">
+          <div class="hero-left">
+            <span class="eyebrow">Handpicked Luxury</span>
+            <h1>Quality. Style. Comfort.</h1>
+            <p class="lead">
+              Stylish everyday totes designed for comfort and confidence.
+            </p>
+            <div class="hero-ctas">
+              <a href="#" onclick="app.router('shop')" class="btn btn-primary"
+                >Shop Collection</a
+              >
+              <a href="#" onclick="app.router('contact')" class="btn"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+          <div class="hero-right" aria-hidden="false">
+            <!-- <div class="hero-blob" aria-hidden="true"></div> -->
+            <div class="hero-visual" aria-hidden="true">
+              <img
+                src="assets/bag-main.svg"
+                alt="Featured designer tote bag"
+                class="bag-main"
+              />
+              <!-- <img
+                src="assets/accessory-1.svg"
+                alt=""
+                class="accessory acc-1"
+                aria-hidden="true"
+              />
+              <img
+                src="assets/accessory-2.svg"
+                alt=""
+                class="accessory acc-2"
+                aria-hidden="true"
+              /> -->
+            </div>
+          </div>
         </div>
       </section>
 
