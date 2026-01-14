@@ -10,7 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="n8n-chat-style.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -197,5 +201,39 @@
 
     <script src="./script.js"></script>
     <script src="./products.js"></script>
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl:
+          'http://localhost:5678/webhook/1faf23d7-b20f-4210-8a05-e2e2ebdb585d/chat',
+        webhookConfig: {
+          method: 'POST',
+          headers: {},
+        },
+        target: '#n8n-chat',
+        mode: 'window',
+        chatInputKey: 'chatInput',
+        chatSessionKey: 'sessionId',
+        loadPreviousSession: true,
+        metadata: {},
+        showWelcomeScreen: true,
+        defaultLanguage: 'en',
+        initialMessages: [
+          // 'Hi there! 👋',
+          'Hello. This is Charis. How can I assist you today?',
+        ],
+        i18n: {
+          en: {
+            title: 'Need Help?',
+            subtitle: "Chat with Us! We're available 24/7.",
+            footer: '',
+            getStarted: 'New Conversation',
+            inputPlaceholder: 'Type your question..',
+          },
+        },
+        enableStreaming: true,
+      });
+    </script>
   </body>
 </html>
